@@ -336,6 +336,11 @@
     color:var(--gold-dim);border:1px solid var(--gold-dim);border-radius:2px;padding:3px 8px;width:fit-content;
   }
   .blog-card h3{font-family:var(--font-display);font-size:1.05rem;margin:0;line-height:1.35;}
+  .blog-card p{font-size:0.87rem;color:var(--stone);margin:0;flex:1;}
+  .blog-cite{
+    font-family:var(--font-mono);font-size:0.68rem;letter-spacing:0.02em;
+    color:var(--gold-dim);border-top:1px solid rgba(107,99,85,0.18);padding-top:10px;
+  }
   @media (max-width:860px){.blog-grid{grid-template-columns:1fr 1fr;}}
   @media (max-width:560px){.blog-grid{grid-template-columns:1fr;}}
 

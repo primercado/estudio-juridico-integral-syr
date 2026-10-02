@@ -115,6 +115,12 @@
     function plural(it){ return PLURALES[tipoKey(it)] || (it.tipo ? it.tipo + 's' : 'Otros'); }
     function precio(it){ return !it.precio || /^consultar$/i.test(String(it.precio).trim()) ? 'Precio a consultar' : String(it.precio); }
     function fotosDe(it){ return (it.fotos || []).filter(Boolean); }
+    var ENCUADRES = {arriba:'center top', centro:'center', abajo:'center bottom'};
+    function encuadre(it){
+      var e = String(it.encuadre || '').toLowerCase().trim();
+      e = ENCUADRES[e] || e;
+      return /^[a-z0-9 .%-]+$/.test(e) ? ' style="object-position:' + e + '"' : '';
+    }
     function tipoLugar(it){ return (it.tipo || 'Inmueble') + (it.localidad ? ' en ' + it.localidad : ''); }
     function fichaUrl(it){
       if(!/^https?:$/.test(location.protocol)){ return ''; }
@@ -197,7 +203,7 @@
     function cardHTML(it){
       var fotos = fotosDe(it);
       var media = fotos.length
-        ? '<img src="' + esc(fotos[0]) + '" alt="" loading="lazy" decoding="async">' + (fotos.length > 1 ? '<span class="inm-count">' + fotos.length + ' fotos</span>' : '')
+        ? '<img src="' + esc(fotos[0]) + '" alt="" loading="lazy" decoding="async"' + encuadre(it) + '>' + (fotos.length > 1 ? '<span class="inm-count">' + fotos.length + ' fotos</span>' : '')
         : (croquis(it) || sinFoto(it));
       var docs = (it.documentacion || []).length ? '<p class="inm-docs"><span>Documentación:</span> ' + esc(lista(it.documentacion)) + '</p>' : '';
       var cta = it._estado === 'vendido' ? '' : '<a class="inm-btn inm-btn-solid" href="' + esc(waLink(it)) + '" target="_blank" rel="noopener">Consultar por WhatsApp</a>';
@@ -320,12 +326,19 @@
         (detalle || legal ? '<div class="ficha-detail"><div>' + detalle + '</div><div>' + legal + '</div></div>' : '');
     }
 
+    function ajustarStage(img){
+      var stage = img.closest('.ficha-stage');
+      var marcar = function(){ stage.classList.toggle('es-vertical', img.naturalHeight > img.naturalWidth * 1.05); };
+      if(img.complete && img.naturalWidth){ marcar(); } else { img.addEventListener('load', marcar, {once: true}); }
+    }
+
     function mostrarFoto(i){
       var fotos = fotosDe(actual);
       if(fotos.length < 2){ return; }
       fotoIdx = (i + fotos.length) % fotos.length;
       var img = fichaBody.querySelector('.ficha-img');
       img.src = fotos[fotoIdx];
+      ajustarStage(img);
       img.alt = 'Foto ' + (fotoIdx + 1) + ' de ' + fotos.length + ': ' + actual.titulo;
       fichaBody.querySelector('.ficha-counter').textContent = (fotoIdx + 1) + ' de ' + fotos.length;
       fichaBody.querySelectorAll('[data-foto]').forEach(function(b, j){
@@ -340,7 +353,7 @@
       fotoIdx = 0;
       fichaBody.innerHTML = fichaHTML(it);
       var img = fichaBody.querySelector('.ficha-img');
-      if(img){ img.alt = 'Foto 1 de ' + fotosDe(it).length + ': ' + it.titulo; }
+      if(img){ img.alt = 'Foto 1 de ' + fotosDe(it).length + ': ' + it.titulo; ajustarStage(img); }
       mostrarFoto(0);
       if(!dialog.open){
         dialog.showModal();

@@ -13,6 +13,9 @@
      assets/inmuebles/001/1.jpg). La primera es la portada.
    - Si cargás "frente" y "fondo" (en metros), la ficha dibuja el croquis
      del lote. Si no hay fotos, el croquis ocupa el lugar de la portada.
+   - "encuadre" elige qué parte de la portada se ve en la tarjeta:
+     "arriba", "centro" o "abajo" (por defecto, centro). En la ficha
+     completa la foto se ve siempre entera.
    - estado: "disponible", "reservado" o "vendido".
 
    Para ver la sección con inmuebles de muestra, abrí index.html?ejemplo
@@ -24,6 +27,50 @@ window.INMUEBLES_CONTACTO = {
 };
 
 window.INMUEBLES = [
+
+  {
+    codigo: "001",
+    tipo: "Casa",
+    titulo: "Casa con garage a 2 cuadras del centro",
+    ubicacion: "A 2 cuadras del centro",
+    precio: "Consultar",
+    estado: "disponible",
+    terreno: 400,
+    frente: 8,
+    fondo: 50,
+    dormitorios: 2,
+    banos: 1,
+    caracteristicas: ["Living-comedor", "Cocina independiente", "Garage", "Baño (sin grifería)", "Terreno amplio al fondo"],
+    descripcion: "Casa amplia y con muchísimo potencial, ideal para tu futura vivienda o para un proyecto comercial. Tiene dos habitaciones, living-comedor, cocina independiente, garage y baño (sin grifería), sobre un terreno de 8 × 50 m (400 m²).",
+    fotos: ["assets/inmuebles/001/1.jpg"],
+    encuadre: "arriba"
+  },
+
+  {
+    codigo: "002",
+    tipo: "Campo",
+    titulo: "Campo ganadero de 1.460 hectáreas",
+    localidad: "Departamento General Güemes, Chaco",
+    ubicacion: "A 30 km de Pampa del Indio, a 50 km de Juan José Castelli y a 50 km de Tres Isletas",
+    precio: "Consultar",
+    estado: "disponible",
+    hectareas: 1460,
+    caracteristicas: [
+      "Campo totalmente ganadero, apto para la actividad que se desee",
+      "Montes, esteros y pasturas naturales",
+      "Corral completo, con mangas y alojamientos",
+      "Alambrado perimetral completo: 7 km de alambre totalmente nuevo",
+      "Campo dividido en piquetes",
+      "Casa",
+      "Perforaciones",
+      "Luz eléctrica e inmenso caudal de agua a pocos metros",
+      "Laguna La Victoria dentro del campo, de 10 ha aprox."
+    ],
+    masDatos: { "Parcelas": "2" },
+    descripcion: "Una propiedad con excelentes condiciones para la producción ganadera y una gran variedad de recursos naturales: montes, esteros y pasturas naturales. Cuenta con corral completo, alambrado perimetral nuevo, casa, perforaciones, luz eléctrica y agua en abundancia.",
+    fotos: ["assets/inmuebles/002/1.jpg"],
+    encuadre: "arriba"
+  },
 
   // {
   //   codigo: "001",

@@ -441,7 +441,9 @@
   .ficha-code{margin:0 0 16px;padding-right:48px;font-size:0.84rem;color:var(--gold-dim);font-variant-numeric:tabular-nums;}
   .ficha-top{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:36px;align-items:start;}
   .ficha-stage{position:relative;aspect-ratio:4/3;background:var(--ink);overflow:hidden;}
-  .ficha-stage img{width:100%;height:100%;object-fit:cover;}
+  .ficha-stage img{width:100%;height:100%;object-fit:contain;}
+  /* placas y fotos verticales: más alto para que se vean enteras */
+  .ficha-stage.es-vertical{aspect-ratio:4/5;max-height:78vh;}
   .ficha-stage .croquis{display:block;width:100%;height:100%;}
   .ficha-nav{
     position:absolute;top:50%;transform:translateY(-50%);

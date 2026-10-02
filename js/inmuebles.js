@@ -32,6 +32,7 @@ window.INMUEBLES = [
     codigo: "001",
     tipo: "Casa",
     titulo: "Casa con garage a 2 cuadras del centro",
+    localidad: "Juan José Castelli",
     ubicacion: "A 2 cuadras del centro",
     precio: "Consultar",
     estado: "disponible",

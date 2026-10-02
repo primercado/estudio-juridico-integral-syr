@@ -1,0 +1,12 @@
+// Publicación del sitio en Cloudflare Workers (archivos estáticos).
+// Lo que no debe publicarse está listado en .assetsignore
+{
+  "name": "estudio-juridico-integral-syr",
+  "compatibility_date": "2026-10-01",
+  "observability": {
+    "enabled": true
+  },
+  "assets": {
+    "directory": "."
+  }
+}

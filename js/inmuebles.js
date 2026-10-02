@@ -19,8 +19,8 @@
    ===================================================================== */
 
 window.INMUEBLES_CONTACTO = {
-  whatsapp: "5493644401819",   // número que recibe las consultas por WhatsApp
-  telefono: "543644401819"     // número del botón "Llamar"
+  whatsapp: "5493644566732",   // número que recibe las consultas por WhatsApp
+  telefono: "543644566732"     // número del botón "Llamar"
 };
 
 window.INMUEBLES = [

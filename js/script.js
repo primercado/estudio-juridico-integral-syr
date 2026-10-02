@@ -58,7 +58,7 @@
     var text = 'Hola, soy ' + name + '.';
     if(phone){ text += ' Mi teléfono es ' + phone + '.'; }
     text += ' Consulta: ' + msg;
-    window.open('https://wa.me/5493644401819?text=' + encodeURIComponent(text), '_blank');
+    window.open('https://wa.me/5493644566732?text=' + encodeURIComponent(text), '_blank');
   });
 
   // Inmuebles en venta (datos en js/inmuebles.js)
@@ -71,8 +71,8 @@
     var statusEl = document.getElementById('inmStatus');
     var fichaBody = document.getElementById('fichaBody');
     var contacto = window.INMUEBLES_CONTACTO || {};
-    var waNumber = String(contacto.whatsapp || '5493644401819').replace(/\D/g,'');
-    var telNumber = String(contacto.telefono || '543644401819').replace(/\D/g,'');
+    var waNumber = String(contacto.whatsapp || '5493644566732').replace(/\D/g,'');
+    var telNumber = String(contacto.telefono || '543644566732').replace(/\D/g,'');
     var ORDEN_ESTADO = {disponible:0, reservado:1, vendido:2};
     var PLURALES = {casa:'Casas', terreno:'Terrenos', departamento:'Departamentos', local:'Locales', campo:'Campos', chacra:'Chacras', quinta:'Quintas', 'galpón':'Galpones', galpon:'Galpones', oficina:'Oficinas', 'dúplex':'Dúplex', duplex:'Dúplex'};
     var items = [];
